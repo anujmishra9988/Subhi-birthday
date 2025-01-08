@@ -5,22 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday Subhi!</title>
   <style>
-    /* Global Styles */
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-ite<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Subhi!</title>
-  <style>
-    /* Global Styles */
+    /* Globall for calling */
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -31,12 +16,10 @@
       align-items: center;
       height: 100vh;
       position: relative;
-      /*  background */
-      background: url('https://i.postimg.cc/rwVzcjnJ/IMG-20250108-WA0000.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background: radial-gradient(circle, #1a1a1a, #000); /* Dark gradient background */
     }
 
-    /* Blurred overlay for the background */
+    /* bg */
     body::before {
       content: '';
       position: absolute;
@@ -44,35 +27,35 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-      backdrop-filter: blur(10px); /* Blur effect */
+      background: url('https://i.postimg.cc/rwVzcjnJ/IMG-20250108-WA0000.jpg'); /* Subtle starry texture */
+      opacity: 0.5;
       z-index: 1;
     }
 
-    /* Container for Content */
+    /*  Content */
     .container {
       text-align: center;
-      max-width: 90%; /* Adjusted for smaller screens */
-      padding: 20px; /* Reduced padding */
+      max-width: 90%;
+      padding: 20px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 20px;
-      backdrop-filter: blur(10px); /* Slight blur for the container */
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       animation: fadeIn 2s ease-in-out;
       position: relative;
       z-index: 2;
-      overflow-y: auto; /* Allow scrolling if content exceeds */
-      max-height: 90vh; /* Limit height to 90% of the viewport */
+      overflow-y: auto;
+      max-height: 90vh;
     }
 
-    /* Colorful "Happy Birthday" Text */
+    /* Glowing krne k liye*/
     h1 {
-      font-size: 8vw; /* Responsive font size */
+      font-size: 8vw;
       margin: 0;
       display: flex;
       justify-content: center;
       gap: 5px;
-      flex-wrap: wrap; /* Allow wrapping on small screens */
+      flex-wrap: wrap;
     }
 
     h1 span {
@@ -80,28 +63,25 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       position: relative;
-      animation: bounce 2s infinite;
+      animation: bounce 2s infinite, glow 1.5s infinite alternate;
     }
 
-    /* Add texture overlay to text */
-    h1 span::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/asfalt-light.png'); /* Subtle texture */
-      opacity: 0.3;
-      mix-blend-mode: overlay;
+    /* Glow Effect */
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 5px #ff6f61, 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 40px #ff6f61;
+      }
+      100% {
+        text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 40px #ffcc00, 0 0 80px #ffcc00;
+      }
     }
 
     p {
-      font-size: 4vw; /* Responsive font size */
-      margin: 10px 0; /* Reduced margin */
+      font-size: 4vw;
+      margin: 10px 0;
       opacity: 0;
       animation: fadeInText 3s forwards 1s;
-      color: #fff; /* Ensure text is visible */
+      color: #fff;
     }
 
     /* Button Styles */
@@ -109,12 +89,12 @@
       background: linear-gradient(45deg, #ff6f61, #ffcc00);
       color: #fff;
       border: none;
-      padding: 10px 20px; /* Reduced padding */
+      padding: 10px 20px;
       border-radius: 50px;
-      font-size: 3.5vw; /* Responsive font size */
+      font-size: 3.5vw;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin-top: 10px; /* Reduced margin */
+      margin-top: 10px;
     }
 
     .btn:hover {
@@ -134,11 +114,11 @@
     /* Balloon Animation */
     .balloon {
       position: absolute;
-      width: 80px; /* Reduced size */
-      height: 120px; /* Reduced size */
+      width: 80px;
+      height: 120px;
       background: linear-gradient(45deg, #ff6f61, #ffcc00);
       border-radius: 50%;
-      bottom: -120px; /* Adjusted position */
+      bottom: -120px;
       animation: float 6s ease-in infinite;
       z-index: 1;
     }
@@ -149,9 +129,39 @@
       bottom: -20px;
       left: 50%;
       width: 2px;
-      height: 80px; /* Reduced height */
+      height: 80px;
       background: #fff;
       transform: translateX(-50%);
+    }
+
+    /* Heart Animation */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff6f61;
+      transform: rotate(-45deg);
+      animation: float-heart 5s ease-in infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff6f61;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: 10px;
     }
 
     /* Credit Section */
@@ -193,11 +203,7 @@
 
     /* Audio Player Styles */
     audio {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 100%; /* Make the audio player responsive */
-      max-width: 300px; /* Limit maximum width */
+      display: none; /* Hide the audio player */
     }
 
     /* Keyframes */
@@ -254,6 +260,18 @@
       }
     }
 
+    @keyframes float-heart {
+      0% {
+        transform: translateY(0) rotate(-45deg);
+      }
+      50% {
+        transform: translateY(-100vh) rotate(-45deg);
+      }
+      100% {
+        transform: translateY(-200vh) rotate(-45deg);
+      }
+    }
+
     @keyframes blink {
       0%, 100% {
         opacity: 1;
@@ -265,8 +283,8 @@
   </style>
 </head>
 <body>
-  <!-- Audio Player -->
-  <audio id="birthday-audio" controls autoplay loop>
+  <!-- Audio Player (Hidden) -->
+  <audio id="birthday-audio" loop>
     <source src="https://www.dropbox.com/scl/fi/ws0wf954fgmxq40x48ua1/Birthday-Wishes-Husband-Hindi.mp3?rlkey=6s7n5orhtsrxxbumknt3hmi16&st=nfspxrnc&dl=1" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -290,9 +308,9 @@
       <span>Y</span>
     </h1>
     <p>You are the most amazing person in my life. I love you to the moon and back! 🎉🎂</p>
-    <button class="btn" onclick="showThanks()">A Special Message from Sona</button>
+    <button class="btn" onclick="showThanks()">A Special Message from Sona☺️</button>
     <div id="thanks-message" style="display: none; margin-top: 10px; font-size: 4vw;">
-      💖 To My Dearest Subhi, <br><br>
+      💖 To My Dearest Subhiii, <br><br>
       Thank you for being the light in my life. Your love, kindness, and laughter make every day special. On your birthday, I want you to know how much you mean to me. You deserve all the happiness in the world! <br><br>
       Forever Yours, <br>
       Sona ❤️
@@ -305,6 +323,9 @@
       <span id="minutes">00</span>m :
       <span id="seconds">00</span>s
     </div>
+
+    <!-- Play Music Button -->
+    <button class="btn" id="play-music-btn" onclick="playAudio()">Music Play Kro🥺</button>
   </div>
 
   <!-- Confetti Animation -->
@@ -317,348 +338,10 @@
   <div class="balloon" style="left: 70%; animation-delay: 1s;"></div>
   <div class="balloon" style="left: 90%; animation-delay: 3s;"></div>
 
-  <!-- Credit Section -->
-  <div class="credit">
-    Created by <a href="#" target="_blank">:- Anuj Mishra</a>
-  </div>
-
-  <script>
-    // Confetti Effect
-    const confettiContainer = document.getElementById('confetti-container');
-    for (let i = 0; i < 100; i++) {
-      const confetti = document.createElement('div');
-      confetti.className = 'confetti';
-      confetti.style.left = `${Math.random() * 100}vw`;
-      confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
-      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-      confettiContainer.appendChild(confetti);
-    }
-
-    // Thanks Button Functionality
-    function showThanks() {
-      const thanksMessage = document.getElementById('thanks-message');
-      thanksMessage.style.display = 'block';
-    }
-
-    // Timer Functionality
-    const timer = document.getElementById('timer');
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
-
-    function updateTimer() {
-      const now = new Date();
-      const nextBirthday = new Date(now.getFullYear(), 0, 9); // January is month 0
-      if (now > nextBirthday) {
-        nextBirthday.setFullYear(now.getFullYear() + 1);
-      }
-
-      const diff = nextBirthday - now;
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      daysEl.textContent = String(days).padStart(2, '0');
-      hoursEl.textContent = String(hours).padStart(2, '0');
-      minutesEl.textContent = String(minutes).padStart(2, '0');
-      secondsEl.textContent = String(seconds).padStart(2, '0');
-    }
-
-    setInterval(updateTimer, 1000);
-    updateTimer(); // Initial call
-  </script>
-</body>
-</html>ms: center;
-      height: 100vh;
-      position: relative;
-      /*  background */
-      background: url('https://i.postimg.cc/rwVzcjnJ/IMG-20250108-WA0000.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-
-    /* Blurred overlay for the background */
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-      backdrop-filter: blur(10px); /* Blur effect */
-      z-index: 1;
-    }
-
-    /* Container for Content */
-    .container {
-      text-align: center;
-      max-width: 90%; /* Adjusted for smaller screens */
-      padding: 20px; /* Reduced padding */
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      backdrop-filter: blur(10px); /* Slight blur for the container */
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      animation: fadeIn 2s ease-in-out;
-      position: relative;
-      z-index: 2;
-      overflow-y: auto; /* Allow scrolling if content exceeds */
-      max-height: 90vh; /* Limit height to 90% of the viewport */
-    }
-
-    /* Colorful "Happy Birthday" Text */
-    h1 {
-      font-size: 8vw; /* Responsive font size */
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-      flex-wrap: wrap; /* Allow wrapping on small screens */
-    }
-
-    h1 span {
-      background: linear-gradient(45deg, #ff6f61, #ffcc00);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-      animation: bounce 2s infinite;
-    }
-
-    /* Add texture overlay to text */
-    h1 span::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/asfalt-light.png'); /* Subtle texture */
-      opacity: 0.3;
-      mix-blend-mode: overlay;
-    }
-
-    p {
-      font-size: 4vw; /* Responsive font size */
-      margin: 10px 0; /* Reduced margin */
-      opacity: 0;
-      animation: fadeInText 3s forwards 1s;
-      color: #fff; /* Ensure text is visible */
-    }
-
-    /* Button Styles */
-    .btn {
-      background: linear-gradient(45deg, #ff6f61, #ffcc00);
-      color: #fff;
-      border: none;
-      padding: 10px 20px; /* Reduced padding */
-      border-radius: 50px;
-      font-size: 3.5vw; /* Responsive font size */
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin-top: 10px; /* Reduced margin */
-    }
-
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 5px 15px rgba(255, 154, 158, 0.5);
-    }
-
-    /* Confetti Animation */
-    .confetti {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: #ff0;
-      animation: confetti-fall 5s linear infinite;
-    }
-
-    /* Balloon Animation */
-    .balloon {
-      position: absolute;
-      width: 80px; /* Reduced size */
-      height: 120px; /* Reduced size */
-      background: linear-gradient(45deg, #ff6f61, #ffcc00);
-      border-radius: 50%;
-      bottom: -120px; /* Adjusted position */
-      animation: float 6s ease-in infinite;
-      z-index: 1;
-    }
-
-    .balloon::after {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      width: 2px;
-      height: 80px; /* Reduced height */
-      background: #fff;
-      transform: translateX(-50%);
-    }
-
-    /* Credit Section */
-    .credit {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.7);
-      z-index: 3;
-      background: linear-gradient(45deg, #ffd700, #ffcc00, #ffd700);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: blink 1.5s infinite;
-    }
-
-    .credit a {
-      color: inherit;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .credit a:hover {
-      text-decoration: underline;
-    }
-
-    /* Timer Section */
-    .timer {
-      margin-top: 20px;
-      font-size: 5vw;
-      font-weight: bold;
-      color: #fff;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-    }
-
-    .timer span {
-      padding: 0 5px;
-    }
-
-    /* Audio Player Styles */
-    audio {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 100%; /* Make the audio player responsive */
-      max-width: 300px; /* Limit maximum width */
-    }
-
-    /* Keyframes */
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInText {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(-20px);
-      }
-      60% {
-        transform: translateY(-10px);
-      }
-    }
-
-    @keyframes confetti-fall {
-      0% {
-        transform: translateY(-10vh) rotate(0deg);
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-      }
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-100vh) rotate(360deg);
-      }
-      100% {
-        transform: translateY(-200vh) rotate(720deg);
-      }
-    }
-
-    @keyframes blink {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.5;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Audio -->
-  <audio id="birthday-audio" controls autoplay loop>
-    <source src="https://www.dropbox.com/scl/fi/ws0wf954fgmxq40x48ua1/Birthday-Wishes-Husband-Hindi.mp3?rlkey=6s7n5orhtsrxxbumknt3hmi16&st=nfspxrnc&dl=1" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- Main Content -->
-  <div class="container">
-    <h1>
-      <span>H</span>
-      <span>A</span>
-      <span>P</span>
-      <span>P</span>
-      <span>Y</span>
-      <span> </span>
-      <span>B</span>
-      <span>I</span>
-      <span>R</span>
-      <span>T</span>
-      <span>H</span>
-      <span>D</span>
-      <span>A</span>
-      <span>Y</span>
-    </h1>
-    <p>You are the most amazing person in my life. I love you to the moon and back! 🎉🎂</p>
-    <button class="btn" onclick="showThanks()">A Special Message from Sona</button>
-    <div id="thanks-message" style="display: none; margin-top: 10px; font-size: 4vw;">
-      💖 To My Dearest Subhi, <br><br>
-      Thank you for being the light in my life. Your love, kindness, and laughter make every day special. On your birthday, I want you to know how much you mean to me. You deserve all the happiness in the world! <br><br>
-      Forever Yours, <br>
-      Sona ❤️
-    </div>
-
-    <!-- Timer Section -->
-    <div class="timer" id="timer">
-      <span id="days">00</span>d :
-      <span id="hours">00</span>h :
-      <span id="minutes">00</span>m :
-      <span id="seconds">00</span>s
-    </div>
-  </div>
-
-  <!-- Confetti Animation -->
-  <div id="confetti-container"></div>
-
-  <!-- Balloons -->
-  <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
-  <div class="balloon" style="left: 30%; animation-delay: 2s;"></div>
-  <div class="balloon" style="left: 50%; animation-delay: 4s;"></div>
-  <div class="balloon" style="left: 70%; animation-delay: 1s;"></div>
-  <div class="balloon" style="left: 90%; animation-delay: 3s;"></div>
+  <!-- Hearts -->
+  <div class="heart" style="left: 15%; animation-delay: 1s;"></div>
+  <div class="heart" style="left: 45%; animation-delay: 3s;"></div>
+  <div class="heart" style="left: 75%; animation-delay: 2s;"></div>
 
   <!-- Credit Section -->
   <div class="credit">
@@ -713,28 +396,14 @@
     setInterval(updateTimer, 1000);
     updateTimer(); // Initial call
 
-    // Autoplay Audio on Page Load
-    document.addEventListener('DOMContentLoaded', function() {
-      const audio = document.getElementById('birthday-audio');
-      audio.muted = false; // Unmute the audio
-      audio.play().catch(error => 
-        {
-        console.error('Autoplay failed:', error);
-        // Fallback: Show a play button if autoplay is blocked
-        const playButton = document.createElement('button');
-        playButton.textContent = 'Play Music';
-        playButton.style.position = 'absolute';
-        playButton.style.top = '50px';
-        playButton.style.left = '10px';
-        playButton.style.zIndex = '1000';
-        document.body.appendChild(playButton);
-          playButton.addEventListener('click', function() {
-          audio.play();
-          playButton.style.display = 'none'; // Hide the button after clicking
-        });
-      });
-    });
-        
+    // Audio Play Functionality
+    const audio = document.getElementById('birthday-audio');
+    const playMusicBtn = document.getElementById('play-music-btn');
+
+    function playAudio() {
+      audio.play();
+      playMusicBtn.style.display = 'none'; // Hide the button after clicking
+    }
   </script>
 </body>
 </html>
