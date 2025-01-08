@@ -712,6 +712,29 @@
 
     setInterval(updateTimer, 1000);
     updateTimer(); // Initial call
+
+    // Autoplay Audio on Page Load
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('birthday-audio');
+      audio.muted = false; // Unmute the audio
+      audio.play().catch(error => 
+        {
+        console.error('Autoplay failed:', error);
+        // Fallback: Show a play button if autoplay is blocked
+        const playButton = document.createElement('button');
+        playButton.textContent = 'Play Music';
+        playButton.style.position = 'absolute';
+        playButton.style.top = '50px';
+        playButton.style.left = '10px';
+        playButton.style.zIndex = '1000';
+        document.body.appendChild(playButton);
+          playButton.addEventListener('click', function() {
+          audio.play();
+          playButton.style.display = 'none'; // Hide the button after clicking
+        });
+      });
+    });
+        
   </script>
 </body>
 </html>
